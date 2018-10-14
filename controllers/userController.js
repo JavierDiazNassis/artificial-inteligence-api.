@@ -23,14 +23,16 @@ export const uploadImages = async (req, res) => {
     let { files } = req;
     let { personId } = req.body;
     let imagesUrl = await saveImage(files);
-
+    
     
     let data = await uploadImage({ imagesUrl, personId });
     
     res.send(data);
   } catch (error) {
-    console.log(error);
+    res.status(404).send({error});
   }
 };
 
+
+  
 
