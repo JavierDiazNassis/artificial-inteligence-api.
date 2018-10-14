@@ -37,7 +37,7 @@ export const Train = async () => {
         {})
     );
     const data = await response.json();
-    return data;
+    Trainning();
   } catch (error) {
     console.log(error);
   }
@@ -53,7 +53,7 @@ export const Trainning = async () => {
         {}),
     );
     const data = await response.json();
-    return data;
+    console.log(data)
   } catch (error) {
     console.log(error);
   }
