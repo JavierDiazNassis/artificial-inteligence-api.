@@ -1,5 +1,7 @@
 import FormData from "form-data";
 import fetch from "node-fetch";
+import { Train } from './azure'
+
 export const uploadImages = async files => {
   try {
     let formData = new FormData();
@@ -13,7 +15,7 @@ export const uploadImages = async files => {
       body: formData
     });
     const data = await response.json();
-
+    Train();
     return data;
   } catch (error) {
     return error
