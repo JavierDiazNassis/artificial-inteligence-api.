@@ -1,15 +1,15 @@
 import FormData from "form-data";
+import fetch from "node-fetch";
 export const uploadImages = async files => {
   try {
     let formData = new FormData();
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i], files[i]["name"]);
-    }
+
+    files.map(value => {
+      formData.append("files", value.buffer, value.originalname);
+    });
+
     const response = await fetch(process.env.UPLOAD_IMAGE_API, {
       method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data"
-      },
       body: formData
     });
     const data = await response.json();

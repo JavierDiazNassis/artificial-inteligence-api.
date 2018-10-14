@@ -7,6 +7,6 @@ userRoutes.post("/user", postUser);
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-userRoutes.post("/user/image", upload.array('photos', 100), uploadImages);
+userRoutes.post("/user/image", upload.array('files', 100), uploadImages);
 
 export default userRoutes;

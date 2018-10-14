@@ -8,3 +8,7 @@ export const saveUser = async ({ name, personId }) => {
     console.log(error);
   }
 };
+
+export const uploadImage = async ({ personId }) => {
+
+};
