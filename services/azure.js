@@ -1,13 +1,13 @@
 import fetch from "node-fetch";
 
-const HttpData = (method, content_type, body) => {
+const HttpData = (method, content_type, body = undefined) => {
   return {
-    method: method,
+    method:method,
     headers: {
       "Ocp-Apim-Subscription-Key": process.env.KEY_AZURE,
       "Content-Type": content_type
     },
-    body: body
+    body:body
   }
 }
 
@@ -28,6 +28,7 @@ export const createPerson = async name => {
 };
 
 export const Train = async () => {
+
   try {
     const response = await fetch(
       process.env.TRAIN,
@@ -36,8 +37,10 @@ export const Train = async () => {
         "application/json",
         {})
     );
-    const data = await response.json();
-    Trainning();
+    
+  await Trainning()
+    
+   
   } catch (error) {
     console.log(error);
   }
@@ -49,11 +52,11 @@ export const Trainning = async () => {
       process.env.TRAINNING,
       HttpData(
         "GET",
-        "application/json",
-        {}),
+        "application/json"
+      ),
     );
-    const data = await response.json();
-    console.log(data)
+    const result = await response.json();
+    console.log(result);
   } catch (error) {
     console.log(error);
   }
