@@ -9,6 +9,6 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 userRoutes.post("/user/image", upload.array("files", 100), uploadImages);
 
-userRoutes.get("/user/images", prueba);
+
 
 export default userRoutes;

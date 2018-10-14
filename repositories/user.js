@@ -25,11 +25,3 @@ export const uploadImage = async ({ imagesUrl, personId }) => {
   }
 };
 
-export const getImages = async ({ personId }) => {
-  try {
-    const images = await PicUser.find({ personId });
-    return images;
-  } catch (error) {
-    console.log(error);
-  }
-};

@@ -1,4 +1,4 @@
-import { saveUser, uploadImage, getImages } from "../repositories/user";
+import { saveUser, uploadImage } from "../repositories/user";
 import { createPerson } from "../services/azure";
 import { uploadImages as saveImage } from "../services/heroku";
 
@@ -33,14 +33,4 @@ export const uploadImages = async (req, res) => {
   }
 };
 
-export const prueba = async (req, res) => {
-  try {
-    const { personId } = req.query;
 
-    let images = await getImages({ personId });
-    res.send(images);
-
-  } catch (error) {
-    console.log(error);
-  }
-};
