@@ -24,18 +24,23 @@ export const uploadImages = async (req, res) => {
     let { personId } = req.body;
     let imagesUrl = await saveImage(files);
 
-
-    await imagesUrl.map(image => {
-      return uploadImage({ url: image.url, personId });
-    });
-
-    let images = await getImages({personId});
-    res.send({imagenes:images});
-
-
+    
+    let data = await uploadImage({ imagesUrl, personId });
+    
+    res.send(data);
   } catch (error) {
     console.log(error);
   }
 };
 
+export const prueba = async (req, res) => {
+  try {
+    const { personId } = req.query;
 
+    let images = await getImages({ personId });
+    res.send(images);
+
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -9,18 +9,25 @@ export const saveUser = async ({ name, personId }) => {
   }
 };
 
-export const uploadImage = async ({ url, personId }) => {
+export const uploadImage = async ({ imagesUrl, personId }) => {
   try {
-    const image = await PicUser.insertMany({ url, personId });
+
+    const image = await User.findOneAndUpdate(
+      { personId },{
+        $push:{ images: imagesUrl }
+      }, { new: true }
+      
+    );
+
     return image;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const getImages = async ({personId}) => {
+export const getImages = async ({ personId }) => {
   try {
-    const images = await PicUser.find({personId});
+    const images = await PicUser.find({ personId });
     return images;
   } catch (error) {
     console.log(error);
