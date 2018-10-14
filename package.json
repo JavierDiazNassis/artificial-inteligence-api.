@@ -1,0 +1,26 @@
+{
+  "name": "official-project-ia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "dev": "nodemon index.js --exec babel-node",
+    "test": "mocha test/*.test.js --spec --timeout 5000 --exit --compilers js:babel-core/register",
+    "test:nodemon": "nodemon test/value.test.js --exec mocha --compilers js:babel-core/register"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.3",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.2.0"
+  }
+}
