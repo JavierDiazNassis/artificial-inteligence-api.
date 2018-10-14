@@ -16,6 +16,6 @@ export const uploadImages = async files => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    return error
   }
 };
