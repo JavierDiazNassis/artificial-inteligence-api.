@@ -52,6 +52,7 @@ export const findUrlImages = async ({ personId }) => {
   try {
     const images = await User.findOne({ personId });
     if (!images) return { message: "User not found" };
+    
     return images;
   } catch (error) {
     console.log(error);

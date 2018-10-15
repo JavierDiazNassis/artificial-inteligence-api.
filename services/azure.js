@@ -38,7 +38,7 @@ export const Train = async () => {
         {})
     );
     
-  await Trainning()
+  
     
    
   } catch (error) {
@@ -62,3 +62,26 @@ export const Trainning = async () => {
   }
 };
 
+export const AddFace = async (imagesUrl, id) =>{
+  try {
+    
+    const response = 
+    await fetch(
+      `https://eastus.api.cognitive.microsoft.com/face/v1.0/largepersongroups/ia-group/persons/${id}/persistedfaces`,
+      {
+        method:'POST',
+        headers: {
+          "Ocp-Apim-Subscription-Key": process.env.KEY_AZURE,
+          "Content-Type": "application/json"
+        },
+        body:JSON.stringify({url:imagesUrl})
+          
+      }
+    )
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -35,7 +35,7 @@ export const findByPicture = async (files) =>{
       body: formData
     });
     const data = await response.json();
-   
+  
     return data;
   } catch (error) {
     return error
